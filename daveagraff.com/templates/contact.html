@@ -1,0 +1,13 @@
+{% include "base.html" %}
+<script src='https://www.google.com/recaptcha/api.js'></script>
+</br></br></br>
+<h1 style="padding-left: 1%;">Contact Me</h1>
+	<div class="show-on-page">
+	<p>For my own peace of mind, I would prefer only humans have my contact information. </br> Please fill out the Captcha below.</p>
+	<form method = 'POST' action='/contact/response'>
+		{{ recaptcha }}
+		</br>
+		<input type="submit" value="Submit">
+	</form>
+</div>
+{% include "footer.html" %}
