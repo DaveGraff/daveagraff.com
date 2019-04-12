@@ -8,8 +8,8 @@ app.config['SECRET_KEY'] = 'somesecretkey'
 
 app.config.update(dict(
     RECAPTCHA_ENABLED = True,
-    RECAPTCHA_SITE_KEY = "RECAPTCHA_SITE_KEY",
-    RECAPTCHA_SECRET_KEY = "RECAPTCHA_SECRET_KEY",
+    RECAPTCHA_SITE_KEY = "6Lc2n4UUAAAAALqv1Jmg_PVa72MkZ9ju5CBi0dPe",
+    RECAPTCHA_SECRET_KEY = "6Lc2n4UUAAAAAG3CFeQmgfjoD6ZnBETaC2GfrDp0",
 ))
 
 recaptcha = ReCaptcha()
@@ -24,17 +24,13 @@ def home():
 def about():
 	return render_template('about.html')
 
+@app.route('/courses')
+def courses():
+	return render_template('courses.html')
+
 @app.route('/projects')
 def projects():
-	r = requests.get("https://github.com/DaveGraff?tab=repositories")
-	data = r.text
-	soup = BeautifulSoup(data, features="html.parser")
-	projects = soup.find(id="user-repositories-list").text.replace('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n', '  ').replace('\n', '').replace('        ', ' ').replace('          ', ' ').replace('   ', '  ').replace('    ', '  ').replace('   ', '  ')
-	projects = projects.split('  ')
-	temp_lst = []
-	for project in projects:
-		temp_lst.append(project.strip())
-	return render_template('projects.html', projects=temp_lst)
+	return render_template('projects.html')
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
@@ -43,7 +39,7 @@ def contact():
 @app.route('/contact/response', methods=['GET' ,'POST'])
 def response():
 	if recaptcha.verify():
-		return render_template('contact_response.html', response='You can reach me via email at email')
+		return render_template('contact_response.html', response='You can reach me via email at daveagraff@gmail.com')
 	else:
 		return render_template('contact_response.html', response='No email for you, bot!')
 

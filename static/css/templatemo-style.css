@@ -356,10 +356,10 @@ a:hover, a:active, a:focus {
 }
 
 #home .home-img {
-  background: url('https://drive.google.com/uc?export=view&id=1jaxncwt5CGgGxotxqR6S4TTLha69FapI') no-repeat;
+  background: url('https://drive.google.com/uc?export=view&id=18NAHz9_JzAVBb-prWpBy0__XF8-2zMvk') no-repeat;
   background-size: cover;
-  background-position: 50% 50%;
-  width: 100%;
+  position: fixed;
+  width: 55%;
   height: 100vh;
 }
 
@@ -385,6 +385,12 @@ a:hover, a:active, a:focus {
   .show-on-page {
     padding-left: 3%;
     padding-right: 2%;
+  }
+  .home-img {
+    position: relative;
+  }
+  .container {
+    padding: 0px;
   }
 }
 
@@ -490,7 +496,46 @@ a:hover, a:active, a:focus {
   font-weight: bold;
 }
 
+#box-holder {
+  padding: 3%;
+  margin: 0;
+  list-style: none;
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
 
+.project-card {
+  padding-top: 5px;
+  padding: 10px;
+  text-align: center;
+  width: 25%;
+  min-width: 250px;
+  max-width: 300px;
+  background-color: #f1e2d7;
+  opacity: .8;
+  margin: 1%;
+  border-radius: 1em;
+}
+
+.project-card h3 {
+  color: black;
+  font-weight: bold;
+}
+
+.languageNote {
+  margin-top: -15px;
+  margin-bottom: 10px;
+  left: 2%;
+  bottom: 2%;
+  color: gray;
+}
 
 /*---------------------------------------
    Quotes section              
@@ -687,7 +732,7 @@ footer {
     padding-left: 15px;
   }
 
-  #about .col-md-3,
+  #about .f-3,
   #experience .col-md-6,
   #education .col-md-6,
   #contact .col-md-3 {
