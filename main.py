@@ -8,8 +8,8 @@ app.config['SECRET_KEY'] = 'somesecretkey'
 
 app.config.update(dict(
     RECAPTCHA_ENABLED = True,
-    RECAPTCHA_SITE_KEY = "6Lc2n4UUAAAAALqv1Jmg_PVa72MkZ9ju5CBi0dPe",
-    RECAPTCHA_SECRET_KEY = "6Lc2n4UUAAAAAG3CFeQmgfjoD6ZnBETaC2GfrDp0",
+    RECAPTCHA_SITE_KEY = "somekey",
+    RECAPTCHA_SECRET_KEY = "somesecretkey",
 ))
 
 recaptcha = ReCaptcha()
