@@ -1,0 +1,76 @@
+/*TODO: This needs major work and rework!*/
+
+
+/*My color scheme*/
+.color5background {
+  /*color: */
+  background: #1A3442;
+}
+.color4background {
+  background: #396F70;
+}
+.color3background {
+  background: #6EA594;
+}
+.color2background {
+  background: #AFCEB6;
+}
+.color1background {
+  background: #F7F9F3;
+}
+
+
+.color5text {
+  /*color: */
+  color: #1A3442;
+}
+.color4text {
+  color: #396F70;
+}
+.color3text {
+  color: #6EA594;
+}
+.color2text {
+  color: #AFCEB6;
+}
+.color1text {
+  color: #F7F9F3;
+}
+
+/*Projects*/
+
+#box-holder {
+  padding: 3%;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.project-card {
+  text-align: center;
+  width: 25%;
+  min-width: 250px;
+  max-width: 300px;
+
+  /*word-break: break-all;*/
+
+  margin: 1%;
+  border-radius: 1em;
+}
+
+.project-card h3 {
+  color: black;
+  font-weight: bold;
+}
+
+.project-card dd {
+  margin: 0;
+  padding: 5%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.languageNote {
+  margin-top: -15px;
+  margin-bottom: 10px;
+}
