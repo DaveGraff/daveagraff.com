@@ -1,5 +1,6 @@
 /*TODO: This needs major work and rework!*/
-
+1vw = 1% of viewport width
+1vh = 1% of viewport height
 
 /*My color scheme*/
 .color5background {
@@ -35,6 +36,22 @@
 }
 .color1text {
   color: #F7F9F3;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+/*Welcome*/
+#main_img {
+  width: 100vw;
+  height: 50vw;
+  background: url('/resources/dave_graff_pic.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 /*Projects*/

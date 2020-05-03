@@ -12,7 +12,7 @@ app.use('/dist', express.static(__dirname + '/dist'));
 app.use('/resources', express.static(__dirname + '/resources'));
 
 app.get('/',  (req, res) =>{
-  res.sendFile(path.join(__dirname + '/pages/main.html'));
+  res.sendFile(path.join(__dirname + '/pages/index.html'));
 });
 
 http.listen(port, () => {
