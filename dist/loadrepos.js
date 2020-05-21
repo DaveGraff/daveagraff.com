@@ -41,7 +41,6 @@ jQuery.fn.loadRepositories = function(username) {
         remove = []
         for(i = 0; i < repos.length; i++){
             repo = repos[i].name;
-            console.log(repo)
 
             if(boring.indexOf(repo) != -1){
                 remove.push(i);
