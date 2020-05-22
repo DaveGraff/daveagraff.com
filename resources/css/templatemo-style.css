@@ -6,6 +6,17 @@ http://www.templatemo.com/tm-498-stimulus
 
 */
 
+#button_link {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  color: black;
+  /*optional*/
+  font-family: arial, sans-serif;
+  cursor: pointer;
+}
+
+
 body {
 	background: #ffffff;
     font-family: 'Source Sans Pro', sans-serif;

@@ -2,6 +2,14 @@
 1vw = 1% of viewport width
 1vh = 1% of viewport height
 
+#button_link {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  cursor: pointer;
+}
 
 body {
   padding: 0;
