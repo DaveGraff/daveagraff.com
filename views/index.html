@@ -280,9 +280,9 @@
                          </div>
 
                          <div id="contact-form">
-                              <form action="mailto:email@gmail.com" method="post" id="email_form" enctype="text/plain">
+                              <form action="/#success" method="post" enctype="application/json">
                                    <div class="wow fadeInUp" data-wow-delay="1s">
-                                        <input name="fullname" type="text" class="form-control" id="subject" placeholder="Subject">
+                                        <input name="subject" type="text" class="form-control" id="subject" placeholder="Subject">
                                    </div>
                                    <div class="wow fadeInUp" data-wow-delay="1.2s">
                                         <input name="email" type="email" class="form-control" id="email" placeholder="Your Email">
@@ -332,11 +332,12 @@
 <script src="dist/loadrepos.js"></script>
 <script src="https://www.google.com/recaptcha/api.js?render=6LdMuvoUAAAAAAgXeCwwzvCQ8ccG4tEFeRX-73lA"></script>
 
-<script type="text/javascript">
-     $("#my_repos").loadRepositories("DaveGraff");
-</script>
-
 <script>
+     $("#my_repos").loadRepositories("DaveGraff");
+
+     if (window.location.hash == "#success")
+          alert("Email successfully sent");
+
      grecaptcha.ready(function() {
     // do request for recaptcha token
     // response is promise with passed token
@@ -347,20 +348,5 @@
         });
     });
 </script>
-
-<script type="text/javascript">
-     $("#emailer").click(()=>{
-          body = $("#message").val()
-          subject = $("#subject").val() == "" ? "Default Subject" : $("#subject").val();
-
-          if (body == "")
-               new_mailto = "";
-          else
-               new_mailto = $("#email_form").attr("action") + "?subject="
-
-          console.log($("#email_form").attr("action"));
-     })
-</script>
-
 </body>
 </html>

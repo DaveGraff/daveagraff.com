@@ -5,41 +5,39 @@ const http = require('http').Server(app);
 const port = process.env.PORT || 8080;
 const path = require('path');
 
-const fs = require('fs');
-
 // Get captcha info
+const fs = require('fs');
 let secrets = fs.readFileSync('secrets.json');
 secrets = JSON.parse(secrets);
 
 var bodyParser = require('body-parser');
 request = require('request');
-// var Recaptcha = require('express-recaptcha').RecaptchaV3;
-// var recaptcha = new Recaptcha(secrets['SITE_KEY'], secrets['SECRET_KEY']);
 
-app.use(bodyParser.json());
+
+var nodemailer = require('nodemailer');
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: secrets['SITE_EMAIL'],
+    pass: secrets['EMAIL_PASSWORD']
+  }
+});
+
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 app.engine('html', require('ejs').renderFile);
-//Serve html files
-// var engine = require('consolidate');
+
 
 app.use('/views', express.static(__dirname + '/views'));
 app.use('/dist', express.static(__dirname + '/dist'));
 app.use('/resources', express.static(__dirname + '/resources'));
 
-// app.engine('html', engine.mustache);
-// app.set('view engine', 'html');
-
 //Main page
 app.get('/', (req, res) =>{
   res.sendFile(path.join(__dirname + '/views/index.html'));
-  // res.render('login', { captcha:recaptcha.render() });
 });
 
-
-// //Page to download resume
-// app.get('/resume',  (req, res) =>{
-// 	res.sendFile(path.join(__dirname + '/views/resume.html'));
-// });
 
 //Page to display SBU courses
 app.get('/courses',  (req, res) =>{
@@ -67,13 +65,51 @@ app.post('/resume', function(req, res) {
     if(body.success !== undefined && !body.success) {
       return res.render(__dirname + '/views/error.html', {error: 'Captcha Failed'});
     }
-    // res.json({"responseSuccess" : "Sucess"});
-    // res.end('It worked!');
-    res.sendFile(path.join(__dirname + '/resources/dave_graff_resume.pdf'));
-    // res.redirect('back');
+
+
+    res.sendFile(path.join(__dirname + '/dave_graff_resume.pdf'));
   });
+});
+
+app.post('/', function(req, res) {
+	var body = res.req.res.req.body;
+
+	if(empty(body['subject']) || empty(body['message']) || empty(body['email'])){
+		return res.render(__dirname + '/views/error.html', {error: 'All mailing fields must be specified'});
+	}
+
+	if(!validateEmail(body['email']))
+		return res.render(__dirname + '/views/error.html', {error: 'Email not recognized'});
+
+	var mailOptions = {
+		from: secrets['SITE_EMAIL'],
+		to: `${body['email']}, ${secrets['PERSONAL_EMAIL']}`,
+		subject: body['subject'],
+		text: body['message']
+	};
+
+	transporter.sendMail(mailOptions, function(error, info){
+	  if (error) {
+	    return res.render(__dirname + '/views/error.html', {error: 'All mailing fields must be specified'});
+	  } else {
+	    console.log('Email sent: ' + info.response);
+	  }
+	});
+
+  	res.sendFile(path.join(__dirname + '/views/index.html'));
 });
 
 http.listen(port, () => {
 	console.log(`Server running on port ${port}`);
 });
+
+function empty(datum){
+	if(datum == null || datum == undefined || datum == '')
+		return true;
+	return false;
+}
+
+function validateEmail(email) {
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+}
