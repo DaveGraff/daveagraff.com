@@ -1,0 +1,73 @@
+.split-screen {
+    color: white;
+    width: 50vw;
+    height: 100vh - 64px;
+    padding: 2%;
+}
+
+#about {
+    display: flex;
+    margin: 0;
+}
+
+#about-description img {
+    border-radius: 50%;
+    height: 20vh;
+    border: 5px solid white;
+}
+
+#about-description div {
+    display: flex;
+}
+
+#about-description div div{
+    padding-left: 10px;
+    display: block;
+}
+
+#about-description h1 {
+    font-size: 3em;
+}
+
+#about-description h3 {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+blockquote {
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    quotes: "\201C""\201D""\2018""\2019";
+}
+
+blockquote:before {
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+}
+
+blockquote p {
+    display: inline;
+    font-size: 1.5em;
+}
+
+mat-icon {
+    padding-right: 5px;
+}
+
+small {
+    font-size: .7em;
+    padding-left: 5px;
+    color: #633;
+}
+
+.experience-header {
+    display: flex;
+    font-size: 48px;
+}
+
+.experience p {
+    padding-bottom: 2%;
+}

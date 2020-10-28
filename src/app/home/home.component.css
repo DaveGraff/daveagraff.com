@@ -1,0 +1,53 @@
+#imageWrap {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    height: 100vh;
+}
+
+#mainContent{
+    text-align: center;
+    color: white;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#getStarted {
+    background-color: transparent;
+    border: 3px solid white;
+    border-radius: 100px;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1.6px;
+    padding: 12px 36px;
+    margin-top: 42px;
+    transition: all 0.4s ease-in-out;
+    text-transform: uppercase;
+    outline:none;
+}
+
+#getStarted:hover {
+    background: #E3AE57;
+    border-color: transparent;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+#getStarted:focus {
+    background-color: #E3AE57;
+    border-color: transparent;
+}
+
+.anchor {
+    margin-top: -64px;
+    padding-top: 64px;
+}

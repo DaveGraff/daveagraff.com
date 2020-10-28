@@ -1,0 +1,38 @@
+section {
+    padding: 2%;
+}
+
+form {
+    display: grid;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+button {
+    background-color: transparent;
+    border: 3px solid black;
+    border-radius: 100px;
+    color: black;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1.6px;
+    padding: 12px 36px;
+    margin-top: 42px;
+    transition: all 0.4s ease-in-out;
+    text-transform: uppercase;
+    outline:none;
+}
+
+button:hover {
+    background: #E3AE57;
+    border-color: transparent;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+button:focus {
+    background-color: #E3AE57;
+    border-color: transparent;
+}

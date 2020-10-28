@@ -1,0 +1,73 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { 
+  height: 100%;
+  scroll-behavior: smooth;
+}
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+
+.color1 {
+  background-color: #E3AE57;
+}
+
+.color2 {
+  background-color: #E9724C;
+}
+
+a:link {text-decoration: none;}
+a:visited {text-decoration: none;}
+a:hover {text-decoration: none; color: #E3AE57;}
+a:active {text-decoration: none; color: #E3AE57;}
+a {
+  color: #666;
+  font-size: 14px;
+  font-weight: 400;
+  transition: all 0.4s ease-in-out;
+}
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  background: none repeat scroll 0 0 #ffffff;
+}
+  
+.spinner {
+  border: 1px solid transparent;
+  border-radius: 5px;
+  position: relative;
+}
+  
+.spinner:before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border-radius: 50%;
+  border: 2px solid #E3AE57;
+  border-top-color: #f9f9f9;
+  animation: spinner .6s linear infinite;
+}
+  
+@-webkit-@keyframes spinner {
+  to {transform: rotate(360deg);}
+}
+  
+@keyframes spinner {
+  to {transform: rotate(360deg);}
+}

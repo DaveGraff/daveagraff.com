@@ -1,0 +1,34 @@
+<section>
+  <h1>Say Hello</h1>
+  <br>
+  <form>
+    <mat-form-field>
+      <mat-label>Subject</mat-label>
+      <input #subject matInput [formControl]="subjectFormControl" subject.value=''>
+      <mat-error *ngIf="subjectFormControl.hasError('required')">
+        Subject is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Your Email</mat-label>
+      <input #email matInput [formControl]="emailFormControl" email.value=''>
+      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Email is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Write your message...</mat-label>
+      <textarea #message matInput rows="5" cols="60" [formControl]="messageFormControl" message.value=''></textarea>
+      <mat-error *ngIf="messageFormControl.hasError('required')">
+        A message is required
+      </mat-error>
+    </mat-form-field>
+  </form>
+
+  <button (click)="sendEmail(subject.value, email.value, message.value)">Send</button>
+</section>

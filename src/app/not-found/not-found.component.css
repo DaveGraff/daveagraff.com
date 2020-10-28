@@ -1,0 +1,44 @@
+#not-found-message {
+    text-align: center;
+    color: black;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#not-found-restart {
+    background-color: transparent;
+    border: 3px solid black;
+    border-radius: 100px;
+    color: black;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1.6px;
+    padding: 12px 36px;
+    margin-top: 42px;
+    transition: all 0.4s ease-in-out;
+    text-transform: uppercase;
+    outline:none;
+}
+
+#not-found-restart:hover {
+    background: #E3AE57;
+    border-color: transparent;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+#not-found-restart:focus {
+    background-color: #E3AE57;
+    border-color: transparent;
+}
+
+app-footer {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
