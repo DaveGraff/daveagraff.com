@@ -38,7 +38,6 @@ app.get('/', (req, res) =>{
   res.sendFile(path.join(__dirname + '/views/index.html'));
 });
 
-
 //Page to display SBU courses
 app.get('/courses',  (req, res) =>{
 	res.sendFile(path.join(__dirname + '/views/courses.html'));
@@ -49,7 +48,7 @@ app.get('*', (req, res)=>{
 	res.render(__dirname + '/views/error.html', {error: 'Page not found'});
 });
 
-
+//Retrieve my resume, requires captcha
 app.post('/resume', function(req, res) {
 	if(empty(req.body['g-recaptcha-response'])){
   		return res.render(__dirname + '/views/error.html', {error: 'Captcha Error'});
@@ -63,16 +62,14 @@ app.post('/resume', function(req, res) {
     	if(body.success !== undefined && !body.success)
     		return res.render(__dirname + '/views/error.html', {error: 'Captcha Failed'});
 
-
     	res.sendFile(path.join(__dirname + '/dave_graff_resume.pdf'));
     });
 });
 
-
+//Send mail
 var mail_requests = {};
 app.post('/', function(req, res) {
 	var body = req.body;
-
 
 	//Only email if everything checks out
 	if(empty(body['subject']) || empty(body['message']) || empty(body['email']))
@@ -80,8 +77,6 @@ app.post('/', function(req, res) {
 
 	if(!validateEmail(body['email']))
 		return res.send('Email not recognized');
-
-
 
 	//Get ip address of client
 	var ip = req.connection.remoteAddress;
@@ -111,7 +106,7 @@ app.post('/', function(req, res) {
 	//Create message
 	var mailOptions = {
 		from: secrets['SITE_EMAIL'],
-		to: `${body['email']}, ${secrets['PERSONAL_EMAIL']}`,
+		to: `${body['email']}, ${secrets['SITE_EMAIL']}`,
 		subject: body['subject'],
 		text: body['message']
 	};
